@@ -51,4 +51,27 @@ public class RedisController {
         return new ResultData(200,"success",null);
     }
 
+    /**
+     * 遍历指定长度的Key
+     */
+    @GetMapping("lengthKeys")
+    public ResultData lengthKeys(){
+
+        Collection<String> keys = redisUtil.keys("*");
+        List<String> lists = new ArrayList<>();
+        keys.forEach(x ->{
+            lists.add(x);
+        });
+        List<String> newList = new ArrayList<>();
+        lists.forEach(x ->{
+            if (x.length() == 3){
+                newList.add(x);
+            }
+        });
+        System.out.println(newList);
+
+        return new ResultData(200, "success", null);
+    }
+
+
 }
