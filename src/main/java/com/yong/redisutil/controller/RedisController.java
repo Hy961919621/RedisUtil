@@ -56,7 +56,7 @@ public class RedisController {
      */
     @GetMapping("lengthKeys")
     public ResultData lengthKeys(){
-        //test
+        //test111
         Collection<String> keys = redisUtil.keys("*");
         List<String> lists = new ArrayList<>();
         keys.forEach(x ->{
